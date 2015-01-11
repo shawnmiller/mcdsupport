@@ -37,6 +37,7 @@ class Cloze():
         # cloze vars
         self.mode = 0
         self.text = u''
+        self.translation = u''
         self.notes = u''
         self.source = u''
         self.clozes = u''
@@ -103,6 +104,7 @@ class Cloze():
             excerpt += u'...'
         # convert the newlines to html
         self.text = unicode.replace( self.text, '\n', '<br>' )
+        self.translation = unicode.replace( self.translation, '\n', '<br>' )
         self.notes = unicode.replace( self.notes, '\n', '<br>' )
         self.source = unicode.replace( self.source, '\n', '<br>' )            
         # save the text for the reading generation
@@ -133,7 +135,8 @@ class Cloze():
                 return False
         # fill in the note fields
         note.fields[0] = self.text
-        note.fields[1] = self.notes
+        note.fields[1] = self.translation
+        note.fields[2] = self.notes
         # check for errors
         if note.dupeOrEmpty():
             self.status = u'Error: Note is empty or a duplicate.'

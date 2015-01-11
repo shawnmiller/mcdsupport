@@ -25,6 +25,13 @@ def removeTabsAndNewlines(str):
     str = str.replace('\r', '')
     str = str.replace('\n', '')
     return str
+
+def removePunctuation(str):
+    str = str.replace('.', '')
+    str = str.replace(',', '')
+    str = str.replace('!', '')
+    str = str.replace('?', '')
+    return str
     
 class AddMcds(QDialog):
 
@@ -118,6 +125,7 @@ class AddMcds(QDialog):
     def copyTextToClozes(self):
         text = self.form.pteText.toPlainText()
         text = removeTabsAndNewlines(text)
+        text = removePunctuation(text)
         self.form.lneClozes.setText(text)
     
     def copyNotesToText(self):
@@ -137,6 +145,7 @@ class AddMcds(QDialog):
         cloze = Cloze();
         cloze.mode = mcd.modes[ self.form.cmbMode.currentIndex() ]
         cloze.text = self.form.pteText.toPlainText()
+        cloze.translation = self.form.pteBling.toPlainText()
         cloze.notes = self.form.pteNotes.toPlainText()
         cloze.source = self.form.lneSource.text()
         cloze.clozes = self.form.lneClozes.text()
@@ -150,6 +159,7 @@ class AddMcds(QDialog):
         # clear the form
         if okay:
             self.form.pteText.clear()
+            self.form.pteBling.clear()
             self.form.pteNotes.clear()
             self.form.lneClozes.clear()
 		# end busy cursor

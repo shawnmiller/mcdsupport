@@ -24,12 +24,15 @@ def addBasicMcdModel(col):
 }"""
     fm = mm.newField("Text")
     mm.addField(m, fm)
+    fm = mm.newField("Translation")
+    mm.addField(m, fm)
     fm = mm.newField("Notes")
     mm.addField(m, fm)
     fm = mm.newField("Source")
     mm.addField(m, fm)
     t = mm.newTemplate("Basic MCD")
-    fmt = "{{cloze:Text}}%s"
+    #fmt = "{{cloze:Text}}%s"
+    fmt = "{{cloze:Text}}<br>{{Translation}}<br>%s"
     t['qfmt'] = fmt % ""
     t['afmt'] = fmt % "<br>\n{{Notes}}<br>\n{{Source}}"
     mm.addTemplate(m, t)
@@ -52,6 +55,8 @@ def addJapaneseMcdModel(col):
 }"""
     fm = mm.newField("Text")
     mm.addField(m, fm)
+    fm = mm.newField("Translation")
+    mm.addField(m, fm)
     fm = mm.newField("Notes")
     mm.addField(m, fm)
     fm = mm.newField("Source")
@@ -59,7 +64,8 @@ def addJapaneseMcdModel(col):
     fm = mm.newField("Reading")
     mm.addField(m, fm)
     t = mm.newTemplate("Japanese MCD")
-    fmt = "{{cloze:Text}}%s"
+    #fmt = "{{cloze:Text}}%s"
+    fmt = "{{cloze:Text}}<br>{{Translation}}<br>%s"
     t['qfmt'] = fmt % ""
     t['afmt'] = fmt % "<br>\n{{Reading}}<br>\n{{Notes}}<br>\n{{Source}}"
     mm.addTemplate(m, t)

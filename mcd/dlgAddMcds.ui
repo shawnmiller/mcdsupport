@@ -84,6 +84,28 @@
          </property>
         </widget>
        </item>
+       <!-- Translation Field Start -->
+       <item>
+        <widget class="QLabel" name="lblBling">
+         <property name="text">
+          <string>Translation</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="pteBling">
+         <property name="font">
+          <font>
+           <family>Arial</family>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="tabChangesFocus">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <!-- Translation Field End -->
        <item>
         <layout class="QHBoxLayout" name="layNotesLabel">
          <item>
@@ -391,6 +413,7 @@
  </widget>
  <tabstops>
   <tabstop>pteText</tabstop>
+	<tabstop>pteBling</tabstop>
   <tabstop>pteNotes</tabstop>
   <tabstop>lneClozes</tabstop>
   <tabstop>lneSource</tabstop>
